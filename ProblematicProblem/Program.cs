@@ -22,7 +22,8 @@ static bool cont = true;
             }
             else
             {
-                cont = false;
+                Console.WriteLine("Ok, Let me know if you change your mind");
+                return;
             }
             
     Console.WriteLine();
@@ -61,9 +62,10 @@ static bool cont = true;
                     addToList = false;
                 }
         Console.WriteLine();
+        if (addToList) { Console.Write("What would you like to add? "); }
         while (addToList)
         {
-            Console.Write("What would you like to add? ");
+            
             string userAddition = Console.ReadLine();
             activities.Add(userAddition);
             foreach (string activity in activities)
@@ -73,7 +75,10 @@ static bool cont = true;
             }
             Console.WriteLine();
             Console.WriteLine("Would you like to add more? yes/no: ");
-             
+            string userinput = Console.ReadLine();
+            if (userinput == "yes") 
+            { Console.WriteLine("What else would you like to add?"); }
+            else { addToList = false; }
         }
     }
 
